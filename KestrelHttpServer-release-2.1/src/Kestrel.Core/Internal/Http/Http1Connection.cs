@@ -520,7 +520,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http
             endConnection = false;
             if (_requestProcessingStatus == RequestProcessingStatus.AppStarted)
             {
-                EnsureHostHeaderExists();
+                //EnsureHostHeaderExists();
                 return true;
             }
             else
