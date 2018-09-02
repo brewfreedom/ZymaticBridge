@@ -1,0 +1,10 @@
+{
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.props": "xml",
+    "*.targets": "xml"
+  }
+}
