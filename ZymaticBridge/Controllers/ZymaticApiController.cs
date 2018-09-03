@@ -45,6 +45,14 @@ namespace ZymaticBridge.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("API/zymaticFirmwareCheck")]
+        public string ZymaticFirmwareCheck()
+        {
+            Console.WriteLine("LogSession");
+
+            return "#1.1.14#";
+        }
 
         [HttpGet] 
         [Route("API/logsession")]

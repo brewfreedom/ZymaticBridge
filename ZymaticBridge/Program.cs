@@ -17,9 +17,7 @@ namespace ZymaticBridge
 
         public static void Main(string[] args)
         {
-            string s = "4406c30c181a4f918ff3f091d64d84a3";
-
-
+           
 
             var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
@@ -40,39 +38,21 @@ namespace ZymaticBridge
             Console.WriteLine("Initializing hosting.");
 
             BuildWebHost(args).Run();
-
-
-           
+             
  
-            Console.WriteLine("Your Zymatic should now be able to brew freely. Remember to set your router's DNS for www.picobrew.com to the IP address in appsettings.json \"urls\".");
         }
-
-        //TODO: make this easy to config for users 
-        //allong with reserving the port/ip. for folks running IIS on a dev rig sorry.
+         
         public static IWebHost BuildWebHost(string[] args)
         {
-          
+           
 
-            string urlConfig = _Configuration["urls"];
-
-            var webHost = WebHost.CreateDefaultBuilder(args)
-       
-
-            .UseKestrel((options) =>
-            {
-                IPAddress ipAddress = null;
-                IPAddress.TryParse("192.168.1.192", out ipAddress);
-                options.Listen(ipAddress, 80, listenOptions =>
-                {
-
-                    listenOptions.UseConnectionLogging();
-                });
-
-            })
-
+            var webHost = WebHost.CreateDefaultBuilder(args) 
+            .UseKestrel()
+            .UseConfiguration(_Configuration)
             .UseStartup<Startup>();
 
-           
+            Console.WriteLine("Your Zymatic should now be able to brew freely. Remember to set your router's DNS for www.picobrew.com to the IP address in appsettings.json \"urls\".");
+
 
             return webHost.Build();
         }
