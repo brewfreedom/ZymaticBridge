@@ -72,7 +72,10 @@ namespace ZymaticBridge.Controllers
             else
             {
 
-                BrewSession session = _Sessions[model.session];
+                BrewSession session = null;
+
+                if(_Sessions.ContainsKey(model.session))
+                    session = _Sessions[model.session];
 
                 if(session!=null)
                 {

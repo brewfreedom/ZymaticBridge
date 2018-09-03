@@ -118,7 +118,7 @@ namespace ZymaticBridge.Models.BeerXml
 
             foreach(var step in Zymatic.Step)
             {
-                builder.Append(string.Format("{0},{1},{2},{3}/",
+                builder.Append(string.Format("{0},{1},{2},{3},{4}/",
                                 step.Name,
                                 step.Temp,
                                 step.Time,
